@@ -8,9 +8,9 @@ const { validarJWT } = require('../middlewares/validarJWT.middleware');
 
 const router = Router();
 
-router.post('/', login);
+router.get('/', login);
 
-router.post('/crear', crearUsuario);
+router.get('/crear', crearUsuario);
 
 router.get('/', validarJWT, getUsuario);
 
