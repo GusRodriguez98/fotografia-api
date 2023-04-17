@@ -11,8 +11,8 @@ const router = Router();
 router.get('/',validarJWT, getCategoriaById);
 router.get('/activas',validarJWT, getCategoriasByIdActivas);
 
-router.post('/', validarJWT, postCategoria);
-router.put('/', validarJWT, putCategoria);
+router.get('/', validarJWT, postCategoria);
+router.get('/', validarJWT, putCategoria);
 
 // router.get('/', validarJWT, getUsuario);
 
