@@ -18,13 +18,9 @@ class Server {
         this.rutaLocales = '/api/locales';
 
         this.middlewares();
-        this.app.use((req, res, next) => {
-            if (req.headers['x-forwarded-proto'] !== 'https' && process.env.NODE_ENV === 'production') {
-                res.redirect(`https://${req.headers.host}${req.url}`);
-            } else {
-                next();
-            }
-        });
+        this.routes();
+        
+
 
         //Rutas de mi aplicación
     }
@@ -69,6 +65,9 @@ class Server {
         this.app.use(this.rutaCategoria, require('./routes/categoria.routes'));
         this.app.use(this.rutaPaquete, require('./routes/paquete.routes'));
         this.app.use(this.rutaLocales, require('./routes/locales.routes'));
+        this.app.get('/', (req, res) => {
+            res.json({ message: 'Bienvenido' });
+        });
 
     }
 
