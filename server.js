@@ -18,14 +18,20 @@ class Server {
         this.rutaLocales = '/api/locales';
 
         this.middlewares();
-        this.routes();
+        this.app.use((req, res, next) => {
+            if (req.headers['x-forwarded-proto'] !== 'https' && process.env.NODE_ENV === 'production') {
+                res.redirect(`https://${req.headers.host}${req.url}`);
+            } else {
+                next();
+            }
+        });
 
         //Rutas de mi aplicación
     }
 
     async syncDB() {
         try {
-            
+
             const db = require("./models/rf");
             await dbConection.sync({
                 force: true
