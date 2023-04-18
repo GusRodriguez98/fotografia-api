@@ -35,6 +35,9 @@ const getClientesActivos = async (req = request, res = response) => {
 const crearCliente = async (req = request, res = response) => {
 
     const { nombre, numerocelular, identidad } = req.body;
+    console.log(nombre)
+    console.log(numerocelular)
+    console.log(identidad)
     try {
         const cliente = await Cliente.create({
             nombre: nombre,
