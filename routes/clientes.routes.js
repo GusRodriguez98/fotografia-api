@@ -10,8 +10,8 @@ const router = Router();
 
 router.get('/',validarJWT, getClientes);
 
-router.get('/post',validarJWT, crearCliente);
-router.get('/put',validarJWT, putCliente);
+router.post('/',validarJWT, crearCliente);
+router.put('/',validarJWT, putCliente);
 
 router.get('/activos', validarJWT, getClientesActivos);
 
