@@ -46,13 +46,13 @@ const crearCliente = async (req = request, res = response) => {
 
         });
 
-        return res.status(200).send({
+        return res.status(200).json({
             message: "Registrado con éxito.",
             cliente
         });
     } catch (error) {
         console.log(error);
-        return res.status(500).send({
+        return res.status(500).json({
             message: "Ocurrio un error" + error
         });
     }
@@ -72,13 +72,13 @@ const putCliente = async (req = request, res) => {
             }
         });
 
-        return res.status(200).send({
+        return res.status(200).json({
             message: "Actualizado con éxito.",
             cliente
         });
     } catch (error) {
         console.log(error);
-        return res.status(500).send({
+        return res.status(500).json({
             message: "Ocurrio un error" + error
         });
     }
