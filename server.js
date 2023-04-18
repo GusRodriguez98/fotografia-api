@@ -8,7 +8,7 @@ class Server {
     constructor() {
         this.app = express();
         process.env.TZ = 'America/Tegucigalpa';
-        this.port = 3000;
+        this.port = process.env.PORT || 3000;
         this.usuariosRoutePath = '/api/usuario';
         this.rutaAuth = '/api/auth';
         this.rutaCliente = '/api/cliente';
