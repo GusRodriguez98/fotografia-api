@@ -30,7 +30,7 @@ class Server {
             await dbConection.sync({
                 force: true
             }).then(() => {
-                // init.initial();
+                init.initial();
             });
             console.log('base sincronizada');
 
