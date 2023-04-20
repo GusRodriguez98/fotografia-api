@@ -68,6 +68,10 @@ class Server {
         this.app.get('/', (req, res) => {
             res.json({ message: 'Bienvenido' });
         });
+        this.app.post('/nombre', (req, res) => {
+            const {nombre} = req.query
+            res.json({ message: 'Bienvenido ' + nombre });
+        });
 
     }
 
