@@ -70,6 +70,7 @@ class Server {
         });
         this.app.post('/nombre', (req, res) => {
             const {nombre} = req.query
+            console.log(nombre);
             res.json({ message: 'Bienvenido ' + nombre });
         });
 
