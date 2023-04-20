@@ -69,9 +69,9 @@ class Server {
             res.json({ message: 'Bienvenido' });
         });
         this.app.post('/nombre', (req, res) => {
-            const {nombre} = req.query
+            const {nombre} = req.body
             console.log(nombre);
-            res.json({ message: 'Bienvenido ' + nombre });
+            res.status(200).send({msg: `hola, ${nombre}`})
         });
 
     }
