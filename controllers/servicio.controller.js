@@ -33,7 +33,6 @@ const getServiciosActivos = async (req = request, res = response) => {
 
 const postServicio = async (req = request, res) => {
     const { tipoServicio } = req.body
-    console.log(tipoServicio);
     try {
         const servicio = await Servicio.create({
             tipoServicio: tipoServicio,

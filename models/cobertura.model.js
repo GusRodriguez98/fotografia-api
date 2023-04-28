@@ -35,15 +35,7 @@ const Cobertura = dbConnection.define('cobertura', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  horasExtras: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false
-  },
-  canthorasExtras: {
-    type: DataTypes.TIME,
-    allowNull: true
-  },
-  
+
   fecha: {
     type: DataTypes.DATEONLY,
     allowNull: false
@@ -62,7 +54,19 @@ const Cobertura = dbConnection.define('cobertura', {
   cantHoras: {
     type: DataTypes.INTEGER,
     allowNull: false
-  }
+  },
+
+  idEstado: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  },
+
+  precio: {
+    type: DataTypes.DOUBLE,
+    allowNull: false
+  },
+
+
 }, {
   timestamps: false,
   freezeTableName: true

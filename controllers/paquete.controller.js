@@ -34,6 +34,7 @@ const getPaquetesActivos = async (req = request, res = response) => {
 const crearPaquete = async (req = request, res = response) => {
 
     const { nombrePaquete, catidadFotosDigitales, fotosImpresas, cantFotosImpresas, tiempoCobertura, precio } = req.body;
+    console.log(tiempoCobertura)
     try {
         const paquete = await Paquete.create({
             nombrePaquete: nombrePaquete,

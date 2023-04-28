@@ -6,8 +6,6 @@ const Categoria = db.categoria;
 
 const getCategoriaById = async (req = request, res = response) => {
     const { servicioId } = req.query
-
-    console.log(servicioId)
     try {
         const categoria = await Categoria.findAll({ where: { idServicio: servicioId } }); // Buscar el registro en la base de datos usando el ID
         if (!categoria) {
@@ -22,7 +20,6 @@ const getCategoriaById = async (req = request, res = response) => {
 const getCategoriasByIdActivas = async (req = request, res = response) => {
     const { servicioId } = req.query
 
-    console.log(servicioId)
     try {
         const categoria = await Categoria.findAll({ where: { idServicio: servicioId, activo: 1 } }); // Buscar el registro en la base de datos usando el ID
         if (!categoria) {
@@ -42,6 +39,7 @@ const getCategoriasByIdActivas = async (req = request, res = response) => {
 const postCategoria = async (req = request, res = response) => {
 
     const { idServicio, tipoCategoria, } = req.body;
+
     try {
         const categoria = await Categoria.create({
             idServicio: idServicio,

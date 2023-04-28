@@ -5,29 +5,34 @@ const categoria = require('../categoria.model');
 const paquete = require('../paquete.model');
 const cobertura = require('../cobertura.model');
 const local = require('../local.model');
+const estado = require('../estado.model');
 
-cliente.hasMany(cobertura, {
-    foreignKey: 'idCliente'
+cobertura.belongsTo(cliente, {
+    foreignKey: 'idCliente',
 });
 
-local.hasMany(cobertura,{
+cobertura.belongsTo(local, {
     foreignKey: 'idLocal'
 });
 
-categoria.hasMany(cobertura, {
+cobertura.belongsTo(categoria, {
     foreignKey: 'idCategoria'
 });
 
-servicio.hasMany(cobertura, {
+cobertura.belongsTo(servicio, {
     foreignKey: 'idServicio'
 });
 
-usuario.hasMany(cobertura, {
+cobertura.belongsTo(usuario, {
     foreignKey: 'idUsuario'
 });
 
-paquete.hasMany(cobertura, {
+cobertura.belongsTo(paquete, {
     foreignKey: 'idPaquete'
+});
+
+cobertura.belongsTo(estado, {
+    foreignKey: 'idEstado'
 });
 
 const db = {
@@ -37,8 +42,8 @@ const db = {
     cobertura,
     categoria,
     paquete,
-    local
-
+    local,
+    estado
 };
 
 

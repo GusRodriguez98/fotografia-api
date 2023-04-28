@@ -1,13 +1,13 @@
 const { DataTypes } = require('sequelize');
 const dbConection = require('../database/config');
 
-const Video = dbConection.define("video", {
-    idVideo: {
+const Estado = dbConection.define("estado", {
+    idEstado: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-    tipoVideo: {
+    nombreEstado: {
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -21,4 +21,4 @@ const Video = dbConection.define("video", {
     freezeTableName: true
 });
 
-module.exports = Video;
+module.exports = Estado;

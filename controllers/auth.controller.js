@@ -85,7 +85,6 @@ const getUsuario = async (req = request, res = response) => {
 
     const uid = req.uid;
 
-    console.log(uid)
 
     try {
         const user = await Usuario.findOne({

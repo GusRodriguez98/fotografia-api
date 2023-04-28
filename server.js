@@ -16,10 +16,11 @@ class Server {
         this.rutaCategoria = '/api/categoria';
         this.rutaPaquete = '/api/paquete';
         this.rutaLocales = '/api/locales';
+        this.rutaCobertura = '/api/cobertura';
 
         this.middlewares();
         this.routes();
-        
+
 
 
         //Rutas de mi aplicación
@@ -65,14 +66,9 @@ class Server {
         this.app.use(this.rutaCategoria, require('./routes/categoria.routes'));
         this.app.use(this.rutaPaquete, require('./routes/paquete.routes'));
         this.app.use(this.rutaLocales, require('./routes/locales.routes'));
-        this.app.get('/', (req, res) => {
-            res.json({ message: 'Bienvenido' });
-        });
-        this.app.post('/nombre', (req, res) => {
-            const {nombre} = req.body
-            console.log(nombre);
-            res.status(200).send({msg: `hola, ${nombre}`})
-        });
+        this.app.use(this.rutaCobertura, require('./routes/cobertura.routes'));
+
+
 
     }
 
