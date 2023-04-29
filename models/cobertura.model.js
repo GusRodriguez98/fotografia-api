@@ -52,7 +52,7 @@ const Cobertura = dbConnection.define('cobertura', {
   },
 
   cantHoras: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     allowNull: false
   },
 

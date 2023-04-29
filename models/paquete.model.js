@@ -25,7 +25,7 @@ const Paquete = dbConection.define("paquete", {
         allowNull: true
     },
     tiempoCobertura: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
         allowNull: false
     },
     precio: {
