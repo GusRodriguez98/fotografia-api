@@ -12,40 +12,32 @@ const Estado = db.estado;
 
 const getCoberturas = async (req = request, res = response) => {
     try {
-        const {idEstado} = req.query;
+        const { idEstado } = req.query;
         const cobertura = await Cobertura.findAll({
             where: { idEstado: idEstado },
             include: [
                 {
                     model: Cliente,
-                    attributes: ['nombre'],
                 },
                 {
                     model: Servicio,
-                    attributes: ['tipoServicio'],
                 },
                 {
                     model: Categoria,
-                    attributes: ['tipoCategoria'],
                 },
                 {
                     model: Usuario,
-                    attributes: ['usuario'],
                 },
                 {
                     model: Paquete,
-                    attributes: ['nombrePaquete'],
                 },
                 {
                     model: Local,
-                    attributes: ['nombreLocal'],
                 },
                 {
                     model: Estado,
-                    attributes: ['nombreEstado'],
                 },
             ],
-            attributes: { exclude: ['idCliente', 'idServicio', 'idCategoria', 'idUsuario', 'idPaquete', 'idLocal', 'idEstado'] }
         })
 
         return res.status(200).json({ coberturas: cobertura });
@@ -118,7 +110,7 @@ const crearCobertura = async (req = request, res = response) => {
 }
 
 const actualizarCobertura = async (req = request, res = response) => {
-    const {idCobertura, idCliente, idServicio, idCategoria, idPaquete, idLocal, lugar, fecha, horaInicio, horaFinal, cantHoras, precio } = req.body;
+    const { idCobertura, idCliente, idServicio, idCategoria, idPaquete, idLocal, lugar, fecha, horaInicio, horaFinal, cantHoras, precio } = req.body;
 
     try {
         const cobertura = await Cobertura.findOne({ where: { idCobertura } });

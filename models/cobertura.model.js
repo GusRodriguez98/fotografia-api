@@ -43,11 +43,11 @@ const Cobertura = dbConnection.define('cobertura', {
 
 
   horaInicio: {
-    type: DataTypes.TIME,
+    type: DataTypes.DATE,
     allowNull: false
   },
   horaFinal: {
-    type: DataTypes.TIME,
+    type: DataTypes.DATE,
     allowNull: false
   },
 
